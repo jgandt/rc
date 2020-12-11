@@ -1,0 +1,9 @@
+# ~/.tmuxinator/base.yml
+
+name: basic
+root: ~
+
+windows:
+  - scr: ''
+  - git: ''
+  - vim: vim

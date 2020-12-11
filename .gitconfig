@@ -1,0 +1,61 @@
+[core]
+	excludesfile = ~/.gitignore
+	pager = less -x1,3
+; [difftool "sourcetree"]
+; 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+; 	path = 
+[color]
+  ui = auto
+[alias]
+  a = add
+  b = branch
+  c = commit --verbose
+  ca = commit --verbose --amend
+  cane = commit --verbose --amend --no-edit
+  co = checkout
+  cob = checkout -b
+	cp = cherry-pick
+  d = diff
+  dc = diff --cached
+	l = log --pretty=oneline -15
+  m = merge
+  mt = mergetool
+  p = pull origin 
+	prd = pull-request -b development -o
+	prm = pull-request -b master -o
+  pu = push --set-upstream origin
+  pun = "!f() { git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); }; f"
+  r = rebase
+	rbd = "!f() { git fetch; git rebase origin/development; }; f"
+  rbc = rebase --continue
+  rbi = rebase --interactive
+  rbs = rebase --skip
+  s = status -sb
+  sl = status --long
+  st = stash
+  stp = stash pop
+  stpu = stash push
+	sts = "!f() { git stash show stash^{/$*} -p; }; f"
+	sta = "!f() { git stash apply stash^{/$*}; }; f"
+[merge]
+  tool = vimdiff
+[mergetool "vimdiff"]
+  ; cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+  ; trustExitCode = true
+[web]
+  browser = ff
+[browser "ff"]
+  cmd = "open -a Firefox.app"
+[user]
+  name = Jeff Gandt
+  email = 1019665+jgandt@users.noreply.github.com
+[branch]
+  autosetupmerge = true
+[push]
+	default = simple
+[url "git://github.com/"]
+	insteadOf = https://github.com/
+[remote "origin"]
+	tagopt = --tags
+[pull]
+	rebase = true

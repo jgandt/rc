@@ -1,0 +1,4 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/jgandt/.oh-my-zsh'
+let g:netrw_dirhist_1='/Users/jgandt/Dropbox/hcs_dot_files'

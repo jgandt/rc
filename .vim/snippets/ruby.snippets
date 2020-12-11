@@ -1,0 +1,39 @@
+# rspec describe block
+snippet desc describe "describe text" .. do end
+	describe "${1:method_name}" do
+		${2}
+	end
+# rspec context block
+snippet cont context "context text" .. do end
+	context "${1}" do
+		${2}
+	end
+# rspec it block
+snippet it it "it text" .. do end
+	it "${1}" do
+		${2}
+	end
+# rspec let
+snippet let let(:var_name) { test_value }
+	let(:${1:var_name}) { ${2} }
+snippet let! let!(:var_name) { test_value }
+	let!(:${1:var_name}) { ${2} }
+snippet FG FactoryGirl.create(factory_name)
+	FactoryGirl.create(:${1:factory_type})
+snippet spec require "spec_helper"; describe...
+	require "spec_helper"
+
+	describe ${1:`substitute(substitute(substitute(Filename(), '_spec$', '', ''), '^.', '\u&', ''), '_\(.\)', '\U\1', 'g')`} do
+		describe "#${2:method}" do
+			it "${3:does_something}" do
+			end
+		end
+	end
+# binding.pry
+snippet bi binding.pry
+	binding.pry
+# rspec expect
+snippet ex expect(<predicate>).to
+	expect(${1:<predicate>}).to ${2}
+snippet ex{ expect { <predicate> }.to
+	expect { ${1:<predicate>} }.to ${2}
