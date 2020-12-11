@@ -59,3 +59,5 @@
 	tagopt = --tags
 [pull]
 	rebase = true
+[init]
+	defaultBranch = trunk
