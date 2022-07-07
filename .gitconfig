@@ -1,9 +1,8 @@
 [core]
 	excludesfile = ~/.gitignore
-	pager = less -x1,3
-; [difftool "sourcetree"]
-; 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-; 	path = 
+	pager = cat
+	; pager = less -x1,3
+	; pager = less -x1,3 -XF ; this acts like cat if fewer than one page of lines, but causes all less output to be saved to scrollback
 [color]
   ui = auto
 [alias]
