@@ -1,5 +1,22 @@
-autoload -Uz compinit
-compinit
+# It's fucking 2021 and I can't fucking believe I have to do this shit.
+# Cache compinit compilation because it's slow as a glacier's libido in an ice storm.
+_zpcompinit_custom() {
+  setopt extendedglob local_options
+  autoload -Uz compinit
+  local zcd=${ZDOTDIR:-$HOME}/.zcompdump
+  local zcdc="$zcd.zwc"
+  # Compile the completion dump to increase startup speed, if dump is newer or doesn't exist,
+  # in the background as this is doesn't affect the current session
+  if [[ -f "$zcd"(#qN.m+1) ]]; then
+        compinit -i -d "$zcd"
+        { rm -f "$zcdc" && zcompile "$zcd" } &!
+  else
+        compinit -C -d "$zcd"
+        { [[ ! -f "$zcdc" || "$zcd" -nt "$zcdc" ]] && rm -f "$zcdc" && zcompile "$zcd" } &!
+  fi
+}
+_zpcompinit_custom
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -148,10 +165,14 @@ fi
 # This one uses part of the file path (4 directories)
 export PS1="${ret_status} %{$fg[cyan]%}%5~%{$reset_color%}%{$fg[red]%}$%{$reset_color%} "
 
+# add gcloud and other tools to path
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
 # create rbenv as a function
-# eval "$(rbenv init -)"
+eval "$(rbenv init -)"
 
 ### node env setup (just like rbenv but for node)
-# eval "$(nodenv init -)"
+eval "$(nodenv init -)"
 
-# export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"

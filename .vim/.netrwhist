@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/jgandt/ruby/wilderdash'
+let g:netrw_dirhist_6='/Users/jgandt/.vim/bundle/vim-vue'
+let g:netrw_dirhist_5='/Users/jgandt/gobee'
+let g:netrw_dirhist_4='/Users/jgandt/jeff_vs_dave/database/jeff_vs_dave_production_2020_10_31.sql'
+let g:netrw_dirhist_3='/Users/jgandt/rc_for_marqeta/.tmuxinator'
 let g:netrw_dirhist_2='/Users/jgandt/.oh-my-zsh'
 let g:netrw_dirhist_1='/Users/jgandt/Dropbox/hcs_dot_files'

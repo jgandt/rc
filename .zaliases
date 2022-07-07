@@ -1,0 +1,151 @@
+###################################
+# jpg Bash Aliases
+# this file is sourced in ~/.bashrc
+# order of aliases is important!
+###################################
+
+###################################
+# pwd aliases
+###################################
+
+# current directory only
+alias cwd='pwd | sed "s/.*\///g"'
+
+###################################
+# ls aliases
+###################################
+
+# ls - colors
+alias ls='ls -G'
+alias dir='ls --format=vertical'
+alias vdir='ls --format=long'
+
+# ls - long
+alias ll='ls -al'
+alias la='ls -A'
+alias l='ls -al'
+
+##################################
+# find aliases
+##################################
+alias jpgfind='find ./ -name '
+
+##################################
+# grep aliases
+##################################
+
+# grep - colors
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+
+# grep - ignore case
+alias grepi='grep -i'
+alias fgrepi='fgrep -i'
+alias egrepi='egrep -i'
+
+# general grep - recursive, exclude svn (pretty custom...)
+alias ggrep='grep -Ri'
+
+##################################
+# ps aliases
+##################################
+
+# grep on ps -ef
+alias pgi='ps -ef | grepi'
+
+##################################
+# pip alias
+##################################
+
+alias pip='pip2'
+
+##################################
+# vi alias
+##################################
+
+# set vi to vim
+alias vi='vim'
+
+##################################
+# find files or folders with
+#	in a size range
+##################################
+
+# set gig
+alias gig='du -h | grep -E "^\s*([(0-9)|(\.)]+)G"'
+
+# set meg
+alias meg='du -h | grep -E "^\s*([(0-9)|(\.)]+)M"'
+
+##################################
+# Bundler Aliases
+##################################
+
+# bundle exec
+alias be='bundle exec'
+
+##################################
+# tmux Aliases
+##################################
+
+alias tmux="TERM='xterm-256color' tmux"
+alias nmux='tmux new -s'
+alias mux='tmuxinator'
+
+##################################
+# git Aliases
+##################################
+# alias git to hub
+alias git='hub'
+# just use g
+alias g='git'
+# hub pull-request
+alias hpr='hub pull-request -b development -o'
+
+##################################
+# clear swap files
+##################################
+alias cswp="find ./ -name '*.sw[op]' | xargs rm"
+
+##################################
+# ssh-add
+##################################
+alias ssa="ssh-add /Users/jgandt/.ssh/id_rsa"
+
+####################################
+# docker and docker-compose aliases
+####################################
+# THIS OVERRIDES THE `dc` CALCULATOR PROGRAM.
+# ( just use `bc` anyways )
+alias dc='docker-compose'
+# alias dcb='docker-compose build'
+# alias dce='docker-compose exec'
+# alias dcps='docker-compose ps'
+# alias dcre='docker-compose restart'
+# alias dcru='docker-compose run'
+# alias dcs='docker-compose stop'
+# alias dcu='docker-compose up'
+# alias dcud='docker-compose up -d'
+
+##################################
+# HCS server aliases
+##################################
+alias qa-rdesk='ssh -i ~/.ssh/id_rsa rdesk1.healthcaretalentsource-qa.net'
+alias stg-rdesk='ssh -i ~/.ssh/id_rsa rdesk1.healthcaretalentsource-staging.net'
+alias stg-rdesk2='ssh -i ~/.ssh/id_rsa rdesk2.healthcaretalentsource-staging.net'
+alias prod-rdesk='ssh -i ~/.ssh/id_rsa rdesk1.healthcaretalentsource.com'
+alias prod-rdesk2='ssh -i ~/.ssh/id_rsa rdesk2.healthcaretalentsource.com'
+alias ssh-jenkins='ssh -i ~/.ssh/jenkins.pem ubuntu@eng-jenkins.healthcaretalentsource.com'
+
+
+#################################
+# zsh globs rake commands
+#################################
+alias rake='noglob rake'
+
+#################################
+# alias for running hcs hrm port finder
+#################################
+alias ports='~/hcs/repos/ports'

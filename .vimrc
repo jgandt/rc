@@ -1,6 +1,9 @@
 " jgandt .vimrc file
 "
 "
+" override default shell to be zsh
+set shell=/usr/local/bin/zsh
+
 """"""""""""""""""""""""""""
 " Vundle
 """"""""""""""""""""""""""""
@@ -12,7 +15,7 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " " required!
-Bundle 'gmarik/vundle'
+Bundle 'VundleVim/Vundle.vim'
 
 " My bundles
 "
@@ -23,6 +26,8 @@ Bundle 'gmarik/vundle'
 " Bundle 'https://github.com/tpope/vim-repeat'
 " enable easy commenting
 Bundle 'https://github.com/tpope/vim-commentary'
+" enable handling multiple file types in the same file (pairs with vim-commentary
+Bundle 'suy/vim-context-commentstring'
 " enable some surround substitution settings
 Bundle 'https://github.com/tpope/vim-surround'
 " Some easier file manipulations
@@ -50,7 +55,7 @@ Bundle 'https://github.com/posva/vim-vue'
 " Javascript and React syntax
 Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
-" Some navigation mappings
+" can't remember what this one does
 Bundle 'https://github.com/tpope/vim-unimpaired'
 " dispatch! Fire commands into a new split and obtain output in a vimsplit
 Bundle 'https://github.com/tpope/vim-dispatch'
@@ -58,7 +63,7 @@ Bundle 'https://github.com/tpope/vim-dispatch'
 Bundle 'https://github.com/tpope/vim-jdaddy'
 
 " elixir support
-" Bundle 'https://github.com/elixir-lang/vim-elixir'
+Bundle 'https://github.com/elixir-lang/vim-elixir'
 " elixir completion and some other stuff
 " Bundle 'slashmili/alchemist.vim'
 
@@ -83,6 +88,12 @@ Bundle 'mustache/vim-mustache-handlebars'
 
 " SCSS syntax
 Bundle 'cakebaker/scss-syntax.vim'
+
+" arduino syntax and commands
+" Bundle 'stevearc/vim-arduino'
+
+" slim syntax highlighting
+Bundle 'slim-template/vim-slim'
 
 " General Syntax checking
 " Bundle 'https://github.com/scrooloose/syntastic'
@@ -164,6 +175,8 @@ autocmd FileType ruby set sw=2 sts=2 expandtab
 autocmd FileType scss set ts=2 sw=2 sts=2 expandtab
 autocmd FileType eruby set ts=4 sw=4 sts=4 noexpandtab
 autocmd FileType javascript set sw=2 sts=2 expandtab
+autocmd FileType vue set sw=2 sts=2 expandtab
+
 
 """""""""""""""""""""""""""""""
 " set search options
@@ -177,6 +190,12 @@ set incsearch
 
 " highlight searches
 set hlsearch
+
+"""""""""""""""""""""""""""""""
+" set undo saving options
+"""""""""""""""""""""""""""""""
+set undodir=~/.vim/undodir
+set undofile
 
 
 """""""""""""""""""""""""""""""
@@ -356,8 +375,8 @@ nnoremap <Leader>l :call RunLastSpec()<CR>
 
 " IF USING TSLIME
 let g:tslime_always_current_session = 1
-" " if you are using spring
-" let g:rspec_command = 'call Send_to_Tmux("bundle exec spring rspec {spec}\n")'
+" if you are using spring
+let g:rspec_command = 'call Send_to_Tmux("bundle exec spring rspec {spec}\n")'
 " if you are not using spring
 " let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
 " END IF USING TSLIME
@@ -424,11 +443,6 @@ nnoremap <Leader>a :Ag! -i
 
 " map F3 to :w ant unix clean ant unix deploy
 map <F3> ;w <CR> ;let @/ = "" <CR>
-
-" map F8 to tempCopy
-map <F8> :w! /tmp/vim.copy.temp <CR>
-" map F9 to temp Paste
-map <F9> :r /tmp/vim.copy.temp <CR>
 
 " map F4 to BufExplorer
 noremap <F4> :BufExplorer <CR>
